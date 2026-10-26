@@ -11,7 +11,7 @@ from typing import List, Optional, Set, Tuple, Dict, Any
 import numpy as np
 
 from src.domain.models import CompanyProfile, ArticleRecord, ensure_utc
-from src.nlp.sentiment_engine_ import HybridNLPEngine
+from src.nlp.sentiment_engine import HybridNLPEngine
 
 
 # Canonical event taxonomy mapping
