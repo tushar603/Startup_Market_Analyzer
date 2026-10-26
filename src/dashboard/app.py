@@ -3,6 +3,9 @@ Module: src/dashboard/app.py
 Role: Autonomous Due-Diligence Cockpit using live Wikipedia, DuckDuckGo, and Google News RSS data.
 """
 
+import nltk
+nltk.download("vader_lexicon", quiet=True)
+
 import os
 from datetime import datetime, timezone, timedelta
 import numpy as np
@@ -22,7 +25,7 @@ st.set_page_config(
 def load_system():
     from src.models.stacking import OutOfFoldStackingClassifier
     from src.features.fusion import FeatureFusionPipeline
-    from src.nlp.sentiment_engine import HybridNLPEngine
+    from src.nlp.sentiment_engine_ import HybridNLPEngine
     from src.ingestion.news_client import LiveNewsIngestor
     from src.ingestion.extractor import WebFirmographicExtractor, AmbiguousEntityError
     from src.models.explainability import ModelExplainer
@@ -36,7 +39,7 @@ def load_system():
     model = OutOfFoldStackingClassifier()
     model.load_artifacts(artifact_path)
 
-    nlp = HybridNLPEngine(use_transformer=False)
+    nlp = HybridNLPEngine(use_transformer=True)
     pipeline = FeatureFusionPipeline(nlp_engine=nlp)
     ingestor = LiveNewsIngestor()
     extractor = WebFirmographicExtractor()

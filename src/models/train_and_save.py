@@ -8,7 +8,7 @@ from src.data.build_dataset import DatasetBuilder
 from src.data.crunchbase_adapter import prepare_crunchbase_cohort
 from src.features.fusion import FeatureFusionPipeline
 from src.models.stacking import OutOfFoldStackingClassifier
-from src.nlp.sentiment_engine import HybridNLPEngine
+from src.nlp.sentiment_engine_ import HybridNLPEngine
 
 
 def train_and_persist(output_dir: str = "models", artifact_name: str = "stacking_ensemble_v1.pkl") -> str:

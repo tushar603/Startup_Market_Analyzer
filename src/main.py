@@ -6,7 +6,7 @@ Role: Production End-to-End Multimodal Execution Driver.
 from datetime import datetime, timezone, timedelta
 from src.domain.models import CompanyProfile, ArticleRecord
 from src.features.fusion import FeatureFusionPipeline
-from src.nlp.sentiment_engine import HybridNLPEngine
+from src.nlp.sentiment_engine_ import HybridNLPEngine
 
 
 def main():

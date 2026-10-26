@@ -15,7 +15,7 @@ from src.domain.models import CompanyProfile, ArticleRecord, ensure_utc
 from src.features.fusion import FeatureFusionPipeline
 from src.models.explainability import ModelExplainer
 from src.models.stacking import OutOfFoldStackingClassifier
-from src.nlp.sentiment_engine import HybridNLPEngine
+from src.nlp.sentiment_engine_ import HybridNLPEngine
 
 # MUST BE DECLARED AT MODULE ROOT SO UVICORN FINDS "app"
 app = FastAPI(
