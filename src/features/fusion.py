@@ -157,7 +157,7 @@ class FeatureFusionPipeline:
         employee_count = profile.employee_count if profile.employee_count is not None else 0
 
         # 3. Batch NLP Sentiment Scoring
-        sentiment_scores = self.nlp.score_articles(valid_articles)
+        sentiment_scores = self.nlp.analyze_articles(valid_articles)
 
         # 4. Temporal Aggregation Windows
         d30_cutoff = cutoff - timedelta(days=30)
