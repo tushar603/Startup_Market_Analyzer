@@ -2,7 +2,14 @@
 Module: src/dashboard/app.py
 Role: Autonomous Due-Diligence Cockpit using live Wikipedia, DuckDuckGo, and Google News RSS data.
 """
+import sys
+from pathlib import Path
 
+# Add the project root to Python's module search path.
+PROJECT_ROOT = Path(__file__).resolve().parents[2]
+
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
 import nltk
 nltk.download("vader_lexicon", quiet=True)
 
@@ -25,7 +32,7 @@ st.set_page_config(
 def load_system():
     from src.models.stacking import OutOfFoldStackingClassifier
     from src.features.fusion import FeatureFusionPipeline
-    from src.nlp.sentiment_engine_ import HybridNLPEngine
+    from src.nlp.sentiment_engine import HybridNLPEngine
     from src.ingestion.news_client import LiveNewsIngestor
     from src.ingestion.extractor import WebFirmographicExtractor, AmbiguousEntityError
     from src.models.explainability import ModelExplainer
